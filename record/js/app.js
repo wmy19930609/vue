@@ -3,11 +3,7 @@
     exports.app = new Vue( {
         el: '#app',
         data: {
-            time: ( new Date().getMonth() + 1 ) + '月' + ( new Date().getDate() ) + '日',
-            payLists: accountList.fetchPayList( 'pay-list' ),
-            incomeLists: accountList.fetchIncomeList( 'income-list' ),
-            payItem: '',
-            incomeItem: ''
+            lists: detailList.fetch()
         },
         methods: {
             addPayItem: function () {

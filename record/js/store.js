@@ -1,8 +1,8 @@
 ( function ( exports ) {
 
-    exports.accountList = {
-        fetch: function ( type ) {
-            return JSON.parse( localStorage.getItem( 'detail-list' ) || '[]' )[ type ];
+    exports.detailList = {
+        fetch: function ( time ) {
+            return JSON.parse( localStorage.getItem( 'detail-list' ) || '{}' )[ time ];
         },
         save: function ( items ) {
             localStorage.setItem( 'detail-list', JSON.stringify( items ) );

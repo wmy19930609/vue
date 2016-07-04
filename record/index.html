@@ -8,21 +8,20 @@
     </style>
 </head>
 <body>
-    <div id="app">
-        <time v-text="time"></time>
+    <div id="app" v-for="(key, val) in lists">
+        <time v-text="key"></time>
 
         <div class="pay">
             <p class="title">
                 支出
                 <input @keyup.enter="addPayItem" v-model="payItem">
             </p>
-            <ul class="list" v-for="(index, item) in payLists">
+            <ul class="list" v-for="(index, item) in paylist">
                 <li>
                     <label @dblclick="editItem(item)" v-text="{{item.name}}"></label>
                     <span class="price" v-text="{{item.price}}"></span>
                     <input class="edit" type="text"
                         v-model="item"
-                        v-show="editFlag"
                         v-pay-focus="false"
                         @blur="doneEdit(index,item)"
                         @keyup.enter="doneEdit(item)"
@@ -32,11 +31,9 @@
             </ul>
         </div>
         
-        
         <div class="income">
             <p class="title">收入</p>
-            <ul class="list" v-for="item in incomeLists">
-               <li>{{item}}</li>
+            <ul class="list" v-for="item in incomelist">
             </ul>
         </div>
     </div>
@@ -44,6 +41,5 @@
     <script src="js/vue.js"></script>
     <script src="js/store.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>
