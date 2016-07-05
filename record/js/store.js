@@ -1,11 +1,28 @@
 ( function ( exports ) {
+    /*
+    ***{
+    
+        xxx: {
+            pay: [{
+                name: ‘rent’,
+                price: 500,
+            }],
+            income:[{
+                name: ‘rent’,
+                price: 500
+            }],
+            initVal: 'hello world'
+        } 
+
+    }
+     */
 
     exports.detailList = {
-        fetch: function ( time ) {
-            return JSON.parse( localStorage.getItem( 'detail-list' ) || '{}' )[ time ];
+        fetch: function () {
+            return JSON.parse( localStorage.getItem( 'detail-list' ) || '{}' );
         },
-        save: function ( items ) {
-            localStorage.setItem( 'detail-list', JSON.stringify( items ) );
+        save: function ( lists ) {
+            localStorage.setItem( 'detail-list', JSON.stringify( lists ) );
         }
     };
 

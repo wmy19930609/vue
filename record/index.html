@@ -8,37 +8,30 @@
     </style>
 </head>
 <body>
-    <div id="app" v-for="(key, val) in lists">
-        <time v-text="key"></time>
+    <div id="app">
+        <time></time>
 
-        <div class="pay">
+        <div class="panel" v-for="(key, val) in getList" :class="[ key == 'pay' ? 'pay' : 'income' ]">
             <p class="title">
-                支出
-                <input @keyup.enter="addPayItem" v-model="payItem">
+                {{key}}
+                <input type="text" @keyup.enter="addItem(key)" class="add-input">
             </p>
-            <ul class="list" v-for="(index, item) in paylist">
+
+            <ul class="list" v-for="item in val">
                 <li>
-                    <label @dblclick="editItem(item)" v-text="{{item.name}}"></label>
-                    <span class="price" v-text="{{item.price}}"></span>
-                    <input class="edit" type="text"
-                        v-model="item"
-                        v-pay-focus="false"
-                        @blur="doneEdit(index,item)"
-                        @keyup.enter="doneEdit(item)"
-                        @keyup.esc="cancelEdit(item)">
+                    <label @dblclick="editItem(item)" v-text="item.name"></label>
+                    <span class="price" v-text="item.price"></span>
+
+                    <button class="del-item" @click="delItem(key, item)">x</button>
                 </li>
-                
             </ul>
         </div>
-        
-        <div class="income">
-            <p class="title">收入</p>
-            <ul class="list" v-for="item in incomelist">
-            </ul>
-        </div>
+
+        <p class="count" v-text="getCount"></p>
     </div>
 
     <script src="js/vue.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/store.js"></script>
     <script src="js/app.js"></script>
 </body>
