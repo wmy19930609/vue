@@ -4,7 +4,7 @@ vue的简单应用：前端的MVVM的库
 Vue.js 不支持 IE8 及其以下版本
 
 ## [MVVM和MVC](http://img.mukewang.com/566915470001456b16000850.jpg)
-Model-View-ViewModel：Model 变化时，ViewModel 会自动更新，而 ViewModel 变化时，View 也会自动变化
+Model-View-ViewModel：实现解耦
 
 
 ![Mou icon](http://cn.vuejs.org/images/mvvm.png)
